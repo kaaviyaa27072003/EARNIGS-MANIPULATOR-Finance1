@@ -1,4 +1,3 @@
-import streamlit as st
 import pickle
 
 with open("model.pkl", "rb") as f:
@@ -22,4 +21,5 @@ if st.button("Predict"):
     input_data = np.array([[feature1, feature2, feature3]])
     prediction = model.predict(input_data)
     st.success(f"Prediction: {prediction[0]}")
+
 
