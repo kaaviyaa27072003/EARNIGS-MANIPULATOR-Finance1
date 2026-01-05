@@ -1,0 +1,26 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+import pickle
+
+# -------- Sample Training Data  --------
+# (Replace this with your real dataset)
+data = pd.DataFrame({
+    "x1":[1,2,3,4,5,6],
+    "x2":[2,1,3,5,4,6],
+    "y":[0,0,0,1,1,1]
+})
+
+X = data[['x1','x2']]
+y = data['y']
+
+# -------- Train Model --------
+model = LogisticRegression()
+model.fit(X, y)
+
+# -------- Save Model as model.pkl --------
+with open("model.pkl", "wb") as f:
+    pickle.dump(model, f)
+
+print("Model saved successfully as model.pkl")
+
